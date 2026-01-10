@@ -1,0 +1,307 @@
+body{
+    height:100%;
+    width:70%;
+  }
+  
+  .main_head{
+    height:300px;
+    width:300px;
+    border:5px solid lightblue;
+    border-top:40px solid lightblue;
+    border-radius:50%;
+    margin-left:202px;
+    background-color: white;
+    
+   
+  }
+  
+  
+  .both_eyes{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    
+  }
+  .both-eye{
+    height:80px;
+    width:80px;
+    border:2px solid black;
+    border-radius:50%;
+    background-color:white;
+    
+  }
+  .eyes{
+    height:25px;
+    width:25px;
+    border:1px solid black;
+    border-radius:50%;
+    background-color:black;
+    margin:25px;
+    animation-name:my-eye;
+    animation-duration:2s;
+    animation-timing-function:ease-in;
+    animation-delay:1s;
+    animation-iteration-count:infinite;
+  
+    
+  }
+  @keyframes my-eye{
+    from{
+    }
+    to{
+      height:30px;
+    width:30px;
+    }
+    
+    
+  }
+  
+ 
+  .nose-mouth{
+    
+    height:200px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  .nose-circle{
+    
+    height:25px;
+    width:25px;
+    border-radius:50%;
+    background-color:red;
+  }
+  
+  
+  .nose{
+    font-size:1.3rem;
+  }
+  
+   .mouth{
+     margin-top:40px;
+    height:50px;
+    width:5px;
+    border:1.5px solid black;
+     border-top-right-radius:40px;
+     border-bottom-right-radius:40px;
+     rotate:90deg;
+     background-color:red;
+    animation-name:my-mouth;
+    animation-duration:2s;
+    animation-timing-function:ease-in;
+    animation-delay:1s;
+    animation-iteration-count:infinite;
+    
+    
+    
+  }
+  
+  @keyframes my-mouth{
+    from{
+      
+    }
+    to{
+      width:40px;
+    height:90px;
+    }
+    
+  }
+  
+  
+  .bel{
+    height:20px;
+    padding-bottom:15;
+    width:310px;
+    background-color:red;
+    border-radius:20px;
+    margin-left:200px;
+    z-index:1;
+  }
+ 
+  
+  .main-bel{
+    height:25px;
+    width:25px;
+    background-color:orange;
+    border-radius:50%;
+    margin-top:0;
+    margin-left:142px;
+  
+    
+    
+  }
+  
+  .dor-body-structure{
+     display:flex;
+    flex-direction:row;
+  }
+  
+   .dor-body{
+    border-radius:50px;
+     border-bottom-right-radius:90px;
+     border-bottom-left-radius:90px;
+    height:350px;
+    width:300px;
+    border:2px solid black;
+    border-bottom:2px solid black;;
+    border-top:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:lightblue;
+    position:relative;
+     bottom:10px;
+  }
+  
+
+  .circle{
+    height:200px;
+    width:230px;
+    border-radius:50%;
+    border:1.5px solid black;
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:white;
+    position:relative;
+     bottom:10px;
+    
+  }
+
+  .pocket{
+    height:150px;
+    width:50px;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px;
+    border:1.5px solid black;
+    rotate:90deg;
+    background-color:white;
+  }
+  
+
+  .left-hand{
+    width:200px;
+    height:50px;
+    border:2px solid black;
+    border-top:none;
+    border-left:none;
+    border-radius:20px;
+    position:relative;
+    left:40px;
+    top:38px;
+    rotate:150deg;
+    background-color:lightblue;
+    z-index:1;
+    animation-name:left-hand;
+    animation-duration:2s;
+    animation-timing-function:ease-in;
+    animation-delay:1s;
+    animation-iteration-count:infinite;
+    
+  }
+  @keyframes left-hand{
+    from{
+      
+    }
+    to{
+   position:relative;
+    left:40px;
+    top:18px;
+      rotate:160deg;
+    }
+    
+  }
+ 
+  .left-p{
+    
+    height:55px;
+    width:55px;
+    background-color:#f2f2f2;
+    border-radius:50%;
+    position:relative;
+    left:200px;
+    box-shadow:1px 1px 1px inset black;
+    
+  
+  }
+   .right-hand{
+    width:200px;
+    height:50px;
+    border:2px solid black;
+     border-top:none;
+    border-right:none;
+    border-radius:20px;
+    position:relative;
+    right:40px;
+     top:18px;
+    rotate:193deg;
+     background-color:lightblue;
+     z-index:1;
+   animation-name:right-hand;
+    animation-duration:2s;
+    animation-timing-function:ease-in;
+    animation-delay:1s;
+    animation-iteration-count:infinite;
+  
+  }
+  
+   .right-p{
+    
+    height:55px;
+    width:55px;
+    background-color:#f2f2f2;
+    border-radius:50%;
+    position:relative;
+    right:55px;
+     box-shadow:1px 1px 1px inset black;
+   
+  }
+  
+  
+  @keyframes right-hand{
+    from{
+      
+    }
+    to{
+   position:relative;
+    right:40px;
+     top:18px;
+    rotate:205deg;
+      
+    }
+    
+  }
+  
+   .both-legs{
+    width:350px;
+    height:150px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    margin-left:200px;
+    position:relative;
+     bottom:60px;
+  }
+  .legs{
+    width:370px;
+    height:100px;
+    border:2px solid black;
+    border-radius:40%;
+    background-color:white;
+    
+       
+  }
+  #left-leg{
+    position:relative;
+    right:50px;
+    
+  }
+  
+  .white-eyes{
+    height:7px;
+    width:7px;
+    background-color:white;
+    
+  }
