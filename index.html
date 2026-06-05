@@ -1,97 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Doraemon</title>
-  </head>
-  <link rel="stylesheet" href="style.css">
-
-  
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanveer & Bushra — Engagement Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    
-      <div class="main_head">
-         
-        <!--Both eyes-->
-  
-        <div class="both_eyes">
-          <!--left eye-->
-          <div class="both-eye">
-            <div class="eyes">
-              <div class="white-eyes"></div>
-              <div class="white-eyes"></div>
-            </div>
-          </div>
-          <!--right eye-->
-           <div class="both-eye">
-             <div class="eyes" >
-               <div class="white-eyes"></div>
-               <div class="white-eyes"></div>
-             </div>
-           </div>
-          
-        </div> <!--eys section  end-->
-            
 
-        <!--nose and mouth-->
-      <div class="nose-mouth">
-        
-         <div class="nose-circle"></div>
-           <div class="nose-body">
-              <div class="nose">
-                ~|~
-                <br>
-                ~|~
-                
-              </div>
-           </div>  
-        <div class="mouth"></div>
-        
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-letter">T &amp; B</div>
+  <div class="loader-text">Loading Invitation…</div>
+</div>
+
+<!-- FLOWER RAIN CONTAINER -->
+<div id="flower-rain"></div>
+<!-- CELEBRATION SPARKS -->
+<div id="celebration"></div>
+
+<!-- DOOR INTRO -->
+<div id="door-screen" onclick="openDoors()">
+  <div class="door-bg-line"></div>
+  <div class="door-bg-line"></div>
+  <div class="door-bg-line"></div>
+  <div class="door-bg-line"></div>
+
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <div class="door-top-arch">✦ &nbsp; ✿ &nbsp; 💍 &nbsp; ✿ &nbsp; ✦</div>
+    <div style="margin-top:32px;position:relative">
+      <!-- behind-doors content -->
+      <div class="door-behind" id="door-behind" style="position:absolute;inset:0;border-radius:4px">
+        <div class="behind-text">You're Invited</div>
+        <div class="behind-sub">Engagement Ceremony</div>
       </div>
-       <!--nose-mouth end-->
-            
-            
-        
-          </div>   
-      <!--main head end-->
-    
-      
-      
-        <div class="bel">
-          <div class="main-bel">•</div>
-          <!--means bel hole-->
+      <div class="door-container">
+        <!-- left door -->
+        <div class="door-left" id="doorL" style="left:0">
+          <div class="door-arch"></div>
+          <div class="door-ornament"></div>
+          <div class="door-ring"><span>🌸</span></div>
         </div>
-      
-      
-    
-      <!--dor-body-->
-      <div class="dor-body-structure">  
-       <div class="left-hand"> <div class="left-p"></div> </div>
-        
-         <div class="dor-body"> 
-           <div class="circle"> <div class="pocket"></div>    </div>
-    
-         </div>
-        
-          <div class="right-hand"> <div class="right-p"></div></div>
+        <!-- right door -->
+        <div class="door-right" id="doorR">
+          <div class="door-arch"></div>
+          <div class="door-ornament"></div>
+          <div class="door-ring"><span>💐</span></div>
+        </div>
       </div>
+    </div>
+    <div class="door-tap-hint">
+      <p>✦ &nbsp; TAP TO OPEN &nbsp; ✦</p>
+    </div>
+  </div>
+</div>
 
-      <!--dor-body end -->
-        
+<!-- SOUND BUTTON -->
+ <audio id="bg-music" src="music.mp3" loop></audio>
+<button id="sound-btn" onclick="toggleSound()">🔊</button>
+
+<!-- MAIN CONTENT -->
+<div id="main">
+
+  <!-- COVER -->
+  <section id="cover">
+    <div class="cover-ornament fade-in">
+      <div class="cover-honor">WE ARE HONORED TO INVITE YOU<br>TO THE ENGAGEMENT CEREMONY OF</div>
+      <div class="rings-deco" style="margin:16px 0">
+        <div class="ring-circle"></div>
+        <div class="ring-circle"></div>
+      </div>
+      <div class="cover-name shimmer-text">Tanveer</div>
+      <div class="cover-surname">Shaikh Tanveer Shaikh Aasif</div>
+      <div class="cover-and">💍</div>
+      <div class="cover-name shimmer-text">Bushra</div>
+      <div class="cover-surname">Bushra Tanzeel Shaikh Naeem</div>
+      <div class="cover-dots"><span></span><span></span><span></span></div>
+      <div class="cover-sub">Request the honour of your presence</div>
+    </div>
+    <div class="scroll-hint fade-in">
+      <p>SCROLL</p>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- WELCOME MESSAGE -->
+  <section id="welcome">
+    <div class="wave-divider fade-in">
+      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,15 Q40,5 80,15 Q120,25 160,15 Q200,5 240,15 Q280,25 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
+        <circle cx="60" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
+        <circle cx="180" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
+        <circle cx="290" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="welcome-text fade-in">
+      With hearts full of joy, we invite you to celebrate the Engagement of<br>
+      <strong>Shaikh Tanveer Shaikh Aasif</strong><br>
+      &amp;<br>
+      <strong>Bushra Tanzeel Shaikh Naeem</strong><br><br>
+      May this blessed union be filled with love, happiness, and endless blessings. ♥
+    </div>
+    <div class="wave-divider fade-in">
+      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,15 Q40,25 80,15 Q120,5 160,15 Q200,25 240,15 Q280,5 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
+        <circle cx="60" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
+        <circle cx="180" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
+        <circle cx="290" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SCRATCH TO REVEAL -->
+  <section id="scratch-section">
+    <div class="section-icon fade-in">✨</div>
+    <div class="section-label fade-in">Scratch to Reveal</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="scratch-canvas-wrap fade-in">
+      <div class="scratch-reveal" id="scratch-reveal">
+        <div class="reveal-event">Engagement Ceremony</div>
+        <div class="reveal-date">June 11, 2026</div>
+        <div class="reveal-day">THURSDAY</div>
+        <div class="reveal-time">11:00 AM</div>
+      </div>
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+    <p style="font-size:11px;color:var(--gold-dim);margin-top:12px;letter-spacing:2px;text-transform:uppercase;" class="fade-in">Scratch the card above ✦</p>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section id="photos">
+    <div class="section-label fade-in">Moments of Joy</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="slider-wrap fade-in">
+      <div class="slide active"><div class="slide-placeholder">
+            <img class="my-image" src="image1.jpg" alt="Image 1">
+      </div></div>
+      <div class="slide"><div class="slide-placeholder">
+        <img class="my-image" src="image2.jpg" alt="Image 2">
       
-      <!--legs-->
-          <div class="both-legs">
-              <div id="left-leg" class="legs"></div>
-              <div class="legs"></div>
-          </div>
+      </div></div>
+      <div class="slide"><div class="slide-placeholder">
+        <img class="my-image" src="image3.jpg" alt="Image 3">
       
-    
+      </div></div>
+      <div class="slide"><div class="slide-placeholder">
+        <img class="my-image" src="image4.jpg" alt="Image 4">
       
-      
-      
-    </body>
+      </div></div>
+    </div>
+    <div class="slide-dots fade-in">
+      <span class="active" onclick="goSlide(0)"></span>
+      <span onclick="goSlide(1)"></span>
+      <span onclick="goSlide(2)"></span>
+      <span onclick="goSlide(3)"></span>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown">
+    <div class="section-label fade-in">Counting Down to the Big Day</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="count-grid fade-in">
+      <div class="count-box"><div class="count-num" id="cd-d">--</div><div class="count-lbl">Days</div></div>
+      <div class="count-box"><div class="count-num" id="cd-h">--</div><div class="count-lbl">Hours</div></div>
+      <div class="count-box"><div class="count-num" id="cd-m">--</div><div class="count-lbl">Minutes</div></div>
+      <div class="count-box"><div class="count-num" id="cd-s">--</div><div class="count-lbl">Seconds</div></div>
+    </div>
+  </section>
+
+  <!-- PROGRAM TIMELINE -->
+  <section id="timeline">
+    <div class="section-icon fade-in">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <div class="section-label fade-in">Program Timeline</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="tl-list fade-in">
+      <div class="tl-row">
+        <div>
+          <div class="tl-bullet"></div>
+          <div class="tl-line" style="height:60px;margin-left:4px;margin-top:4px"></div>
+        </div>
+        <div>
+          <div class="tl-event">Guest Arrival</div>
+          <div class="tl-date">11/06/2026 — Thursday</div>
+          <div class="tl-note">You are warmly welcomed !</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div>
+          <div class="tl-bullet"></div>
+          <div class="tl-line" style="height:60px;margin-left:4px;margin-top:4px"></div>
+        </div>
+        <div>
+          <div class="tl-event">Engagement Ceremony</div>
+          <div class="tl-date">11/06/2026 — Thursday — 11:00 AM</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div><div class="tl-bullet"></div></div>
+        <div>
+          <div class="tl-event">Celebration & Dinner</div>
+          <div class="tl-date">11/06/2026 — Thursday</div>
+          <div class="tl-note">Join us for a joyful celebration together.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section id="venue">
+    <div class="venue-icon-wrap fade-in">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+    </div>
+    <div class="section-label fade-in">Venue</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="venue-name fade-in">Aqsa Nagar Sakali</div>
+    <div class="venue-addr fade-in">Aqsa Nagar, Sakali,<br>Maharashtra</div>
+    <div class="venue-building fade-in">
+      <svg viewBox="0 0 300 100">
+        <rect x="10" y="60" width="280" height="40" rx="2"/>
+        <rect x="80" y="30" width="140" height="70" rx="2"/>
+        <path d="M80,30 Q150,5 220,30"/>
+        <rect x="20" y="40" width="50" height="60" rx="2"/>
+        <rect x="230" y="40" width="50" height="60" rx="2"/>
+        <rect x="130" y="55" width="40" height="45" rx="1"/>
+        <ellipse cx="150" cy="30" rx="6" ry="10"/>
+        <line x1="10" y1="100" x2="290" y2="100"/>
+        <circle cx="40" cy="38" r="3"/>
+        <circle cx="258" cy="38" r="3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- TRANSPORTATION -->
+  <section id="transport">
+    <div class="section-icon fade-in" style="font-size:30px"></div>
+    <div class="section-label fade-in">Transportation</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="info-box fade-in">
+      Shuttle service will be available from Tanveer's home to the venue.<br><br>
+      <strong>Pickup Point:</strong> Tanveer's home at morning AM.
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section id="gifts">
+    <div class="section-icon fade-in" style="font-size:30px">🎁</div>
+    <div class="section-label fade-in">Gifts</div>
+    <div class="heart-divider fade-in"><span>💍</span></div>
+    <div class="gift-msg fade-in">
+      Your love, blessings, and presence are the greatest gifts we could ever ask for.
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section id="footer">
+    <div class="wave-divider fade-in">
+      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,15 Q40,5 80,15 Q120,25 160,15 Q200,5 240,15 Q280,25 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
+        <circle cx="60" cy="8" r="2" fill="#c9a84c" opacity="0.4"/>
+        <circle cx="180" cy="8" r="2" fill="#c9a84c" opacity="0.4"/>
+        <circle cx="290" cy="22" r="2" fill="#c9a84c" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="footer-msg fade-in">We can't wait to celebrate<br>with you!</div>
+    <div class="footer-names fade-in">Tanveer &amp; Bushra</div>
+    <div class="wave-divider fade-in">
+      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,15 Q40,25 80,15 Q120,5 160,15 Q200,25 240,15 Q280,5 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    <div class="footer-names fade-in" style="font-size:15px;margin-top:20px">💍 11 June 2026 · Thursday · 11:00 AM 💍</div>
+    <div class="footer-brand fade-in">Engagement Invitation</div>
+  </section>
+
+</div><!-- /main -->
+  <script src="script.js"></script>
 
 
-
-
-
+</body>
 </html>
+ 
