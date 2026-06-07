@@ -9,18 +9,12 @@
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-letter">T &amp; B</div>
-  <div class="loader-text">Loading Invitation…</div>
-</div>
-
 <!-- FLOWER RAIN CONTAINER -->
 <div id="flower-rain"></div>
 <!-- CELEBRATION SPARKS -->
 <div id="celebration"></div>
 
-<!-- DOOR INTRO -->
+<!-- DOOR INTRO - PROJECT B DESIGN -->
 <div id="door-screen" onclick="openDoors()">
   <div class="door-bg-line"></div>
   <div class="door-bg-line"></div>
@@ -30,29 +24,30 @@
   <div style="display:flex;flex-direction:column;align-items:center">
     <div class="door-top-arch">✦ &nbsp; ✿ &nbsp; 💍 &nbsp; ✿ &nbsp; ✦</div>
     <div style="margin-top:32px;position:relative">
-      <!-- behind-doors content -->
-      <div class="door-behind" id="door-behind" style="position:absolute;inset:0;border-radius:4px">
-        <div class="behind-text">You're Invited</div>
-        <div class="behind-sub">Engagement Ceremony</div>
+      <div class="door-behind" id="door-behind">
+        <div class="db-title">Welcome</div>
+        <div class="db-sub"></div>
       </div>
-      <div class="door-container">
-        <!-- left door -->
-        <div class="door-left" id="doorL" style="left:0">
-          <div class="door-arch"></div>
-          <div class="door-ornament"></div>
-          <div class="door-ring"><span>🌸</span></div>
+      <div class="door" id="doorL">
+        <div class="door-panel-emboss">
+          <div class="door-txt-group">
+            <div class="d-names">Tanveer</div>
+            <div class="d-tag">Save The Date</div>
+          </div>
         </div>
-        <!-- right door -->
-        <div class="door-right" id="doorR">
-          <div class="door-arch"></div>
-          <div class="door-ornament"></div>
-          <div class="door-ring"><span>💐</span></div>
+        <div class="door-handle-wrap"><div class="door-handle">✦</div></div>
+      </div>
+      <div class="door" id="doorR">
+        <div class="door-panel-emboss">
+          <div class="door-txt-group">
+            <div class="d-names">Bushra</div>
+            <div class="d-tag">11 . 06 . 2026</div>
+          </div>
         </div>
+        <div class="door-handle-wrap"><div class="door-handle">✦</div></div>
       </div>
     </div>
-    <div class="door-tap-hint">
-      <p>✦ &nbsp; TAP TO OPEN &nbsp; ✦</p>
-    </div>
+    <div class="d-click-hint"> </div>
   </div>
 </div>
 
@@ -79,38 +74,9 @@
       <div class="cover-dots"><span></span><span></span><span></span></div>
       <div class="cover-sub">Request the honour of your presence</div>
     </div>
-    <div class="scroll-hint fade-in">
-      <p>SCROLL</p>
-      <div class="scroll-arrow"></div>
-    </div>
   </section>
 
-  <!-- WELCOME MESSAGE -->
-  <section id="welcome">
-    <div class="wave-divider fade-in">
-      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,15 Q40,5 80,15 Q120,25 160,15 Q200,5 240,15 Q280,25 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
-        <circle cx="60" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
-        <circle cx="180" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
-        <circle cx="290" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
-      </svg>
-    </div>
-    <div class="welcome-text fade-in">
-      With hearts full of joy, we invite you to celebrate the Engagement of<br>
-      <strong>Shaikh Tanveer Shaikh Aasif</strong><br>
-      &amp;<br>
-      <strong>Bushra Tanzeel Shaikh Naeem</strong><br><br>
-      May this blessed union be filled with love, happiness, and endless blessings. ♥
-    </div>
-    <div class="wave-divider fade-in">
-      <svg viewBox="0 0 340 30" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,15 Q40,25 80,15 Q120,5 160,15 Q200,25 240,15 Q280,5 340,15" stroke="#c9a84c" stroke-width="1" fill="none"/>
-        <circle cx="60" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
-        <circle cx="180" cy="22" r="2" fill="#c9a84c" opacity="0.5"/>
-        <circle cx="290" cy="8" r="2" fill="#c9a84c" opacity="0.5"/>
-      </svg>
-    </div>
-  </section>
+
 
   <!-- SCRATCH TO REVEAL -->
   <section id="scratch-section">
@@ -283,9 +249,29 @@
   </section>
 
 </div><!-- /main -->
+
+<!-- SCROLL HAND GUIDE FROM PROJECT B -->
+<div id="scroll-hand-guide" class="scroll-hand-guide">
+  <div class="shg-label">SCROLL</div>
+  <div class="shg-line-top"></div>
+  <div class="shg-hand">
+    <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="18" y="38" width="26" height="30" rx="8" fill="var(--gold-light)" opacity="0.95"/>
+      <rect x="26" y="14" width="9" height="30" rx="4.5" fill="var(--gold-light)" opacity="0.95"/>
+      <rect x="36" y="18" width="8" height="26" rx="4" fill="var(--gold-light)" opacity="0.9"/>
+      <rect x="16" y="20" width="8" height="24" rx="4" fill="var(--gold-light)" opacity="0.9"/>
+      <rect x="7" y="26" width="7" height="20" rx="3.5" fill="var(--gold-light)" opacity="0.85"/>
+      <rect x="38" y="44" width="12" height="7" rx="3.5" fill="var(--gold-light)" opacity="0.9"/>
+      <rect x="28" y="15" width="5" height="7" rx="2.5" fill="var(--gold)" opacity="0.4"/>
+      <rect x="18" y="38" width="26" height="30" rx="8" fill="none" stroke="var(--gold-dim)" stroke-width="1.5"/>
+      <path d="M26 38 V48 M35 38 V48 M16 44 V52" stroke="var(--gold-dim)" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="shg-trail"><div class="shg-dot"></div><div class="shg-dot"></div><div class="shg-dot"></div></div>
+</div>
+
   <script src="script.js"></script>
 
 
 </body>
 </html>
- 
