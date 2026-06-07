@@ -1,7 +1,7 @@
 
-// LOADER
+// ── AUTO START ──
 window.addEventListener('load',()=>{
-  setTimeout(()=>{document.getElementById('loader').classList.add('hide');},1800);
+  setTimeout(openDoors, 800);
 });
 
 // FLOWER PETALS
@@ -52,20 +52,22 @@ function launchCelebration(){
 
 // DOOR OPEN
 var doorsOpened=false;
+var snd=false;
 function openDoors(){
   
   if(doorsOpened)return;
   doorsOpened=true;
+  var ds=document.getElementById('door-screen');
+  ds.onclick=null;
   document.getElementById('doorL').classList.add('open');
   document.getElementById('doorR').classList.add('open');
   document.getElementById('door-behind').classList.add('visible');
   
-   var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music');
   audio.play().then(() => { snd = true; document.getElementById('sound-btn').textContent = '🔊'; }).catch(e => console.log("Autoplay blocked"));
 
   launchFlowers(40,3);
   setTimeout(function(){
-    var ds=document.getElementById('door-screen');
     ds.style.transition='opacity 1s ease';
     ds.style.opacity='0';
     setTimeout(function(){
@@ -75,19 +77,77 @@ function openDoors(){
       initAll();
       launchFlowers(60,4);
     },1000);
-  },3000);
+  },2800);
 }
   
- 
-  
-  
-  
-
 function initAll(){
   initCountdown();
   initSlider();
   initScratch();
   initFadeIn();
+  initHandAndHintScroll();
+}
+
+// ══════════════════════════════════════════
+// HAND GUIDE + SCROLL HINT (PROJECT B STYLE)
+// ══════════════════════════════════════════
+var handVisible = false;
+var scratchDone = false;
+
+function showHand(){
+  var hand = document.getElementById('scroll-hand-guide');
+  if(!hand || handVisible) return;
+  hand.style.display = 'flex';
+  setTimeout(function(){ hand.classList.add('shg-visible'); hand.classList.remove('shg-hiding'); }, 30);
+  handVisible = true;
+}
+
+function hideHand(permanent){
+  var hand = document.getElementById('scroll-hand-guide');
+  if(!hand || !handVisible) return;
+  hand.classList.remove('shg-visible');
+  hand.classList.add('shg-hiding');
+  handVisible = false;
+  if(permanent){
+    setTimeout(function(){ hand.style.display='none'; }, 700);
+  }
+}
+
+function initHandAndHintScroll(){
+  // Door hatne ke 4.3 second baad auto-scroll hojayega
+  setTimeout(function(){
+    var scratchSection = document.getElementById('scratch-section');
+    if(scratchSection){
+      // Smooth manual scroll kara, transform nahi
+      var target = scratchSection.getBoundingClientRect().top + window.pageYOffset - 80;
+      var start = window.pageYOffset;
+      var distance = target - start;
+      var duration = 2000; // 2 seconds ke liye smooth scroll
+      var startTime = null;
+
+      function easeInOutCubic(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+
+      function scrollStep(timestamp){
+        if(!startTime) startTime = timestamp;
+        var elapsed = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + distance * easeInOutCubic(progress));
+        if(progress < 1) requestAnimationFrame(scrollStep);
+      }
+      requestAnimationFrame(scrollStep);
+    }
+
+    showHand();
+  }, 4300);
+
+  // Watch for page end — hide hand permanently
+  window.addEventListener('scroll', function(){
+    var scrollBottom = window.pageYOffset + window.innerHeight;
+    var docHeight = document.body.scrollHeight;
+    if(scrollBottom >= docHeight - 40){
+      hideHand(true); // permanent
+    }
+  }, {passive:true});
 }
 
 // COUNTDOWN — target June 11 2026 11:00 AM
@@ -161,6 +221,7 @@ function initScratch(){
     for(var i=3;i<imgData.data.length;i+=4){if(imgData.data[i]<128)cleared++;}
     if(cleared/totalPixels>0.55){
       scratchedEnough=true;
+      scratchDone=true;
       onScratchComplete();
     }
   }
@@ -169,17 +230,19 @@ function initScratch(){
     canvas.style.transition='opacity 0.8s ease';
     canvas.style.opacity='0';
     setTimeout(function(){canvas.style.display='none';},800);
+    // show hand guide again
+    setTimeout(function(){ showHand(); }, 1000);
     // flowers + celebration
     launchFlowers(80,5);
     launchCelebration();
     setTimeout(launchCelebration,600);
     setTimeout(function(){launchFlowers(50,4);},1000);
   }
-  canvas.addEventListener('mousedown',()=>drawing=true);
-  canvas.addEventListener('mouseup',()=>drawing=false);
+  canvas.addEventListener('mousedown',()=>{drawing=true; hideHand(false);});
+  canvas.addEventListener('mouseup',()=>{drawing=false; if(scratchDone) showHand();});
   canvas.addEventListener('mousemove',scratch);
-  canvas.addEventListener('touchstart',()=>drawing=true);
-  canvas.addEventListener('touchend',()=>drawing=false);
+  canvas.addEventListener('touchstart',()=>{drawing=true; hideHand(false);});
+  canvas.addEventListener('touchend',()=>{drawing=false; if(scratchDone) showHand();});
   canvas.addEventListener('touchmove',scratch,{passive:false});
 }
 
@@ -192,16 +255,15 @@ function initFadeIn(){
   els.forEach(el=>obs.observe(el));
 }
 
-
 function toggleSound(){
   var audio = document.getElementById('bg-music');
   if(!snd){
     audio.play();
     snd = true;
-    document.getElementById('sound-btn').textContent = '🔊'; // Jab gana chalega to Volume icon dikhega
+    document.getElementById('sound-btn').textContent = '🔊';
   } else {
     audio.pause();
     snd = false;
-    document.getElementById('sound-btn').textContent = '🔇'; // Jam mute hoga to Mute icon dikhega
+    document.getElementById('sound-btn').textContent = '🔇';
   }
 }
